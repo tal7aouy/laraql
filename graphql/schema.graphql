@@ -14,12 +14,9 @@ type Query {
             @eq
             @rules(apply: ["prohibits:id", "required_without:id", "email"])
     ): User @find
-
     "List multiple users."
-    users(
-        "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."
-        name: String @where(operator: "like")
-    ): [User!]! @paginate(defaultCount: 10)
+    users: [User!]! @all
+    tasks: [Task!]! @all
 }
 
 "Account of a person who utilizes this application."
@@ -41,4 +38,18 @@ type User {
 
     "When the account was last updated."
     updated_at: DateTime!
+
+    tasks: [Task!]! @hasMany
+}
+
+type Task {
+    id: ID!
+    title: String!
+    description: String!
+    status: String!
+    priority: String!
+    due_date: Date!
+    created_at: DateTime!
+    updated_at: DateTime!
+    user: User! @belongsTo
 }
