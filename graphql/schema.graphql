@@ -16,6 +16,9 @@ type Query {
     ): User @find
     "List multiple users."
     users: [User!]! @all
+
+    task(id: ID @eq, title: String @eq, status: String @eq): Task @find
+
     tasks: [Task!]! @all
 }
 

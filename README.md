@@ -1,66 +1,70 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# laraQL 🚀
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Overview 🌟
 
-## About Laravel
+This project is a GraphQL API designed to manage users and tasks within an application. It leverages the power of GraphQL to provide a flexible and efficient way to interact with the application's data. The API allows for operations such as querying for users and tasks, finding specific users or tasks by various attributes, and listing all users or tasks.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features ✨
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **User Management**: Query for single or multiple users by ID or email. Each user has a unique ID, a name, and a unique email address.
+-   **Task Management**: Query for single or multiple tasks by ID, title, or status. Tasks are identifiable by a unique ID and can be filtered by their title or status.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Getting Started 🏁
 
-## Learning Laravel
+### Prerequisites 🛠️
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   A server environment capable of running GraphQL.
+-   [Lighthouse](https://lighthouse-php.com/) - a PHP package that allows you to serve a GraphQL endpoint from your Laravel application.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Installation ⚙️
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Install Lighthouse**: Follow the [official Lighthouse documentation](https://lighthouse-php.com/4.10/getting-started/installation.html) to install Lighthouse in your Laravel application.
 
-## Laravel Sponsors
+2. **Schema Setup**: Place the [`schema.graphql`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fmac%2FDesktop%2Flaraql%2Fgraphql%2Fschema.graphql%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/Users/mac/Desktop/laraql/graphql/schema.graphql") file in your project's designated schema directory (default is [`graphql/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fmac%2FDesktop%2Flaraql%2Fgraphql%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/Users/mac/Desktop/laraql/graphql/") in your Laravel project).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **Configure Scalars**: The `DateTime` scalar type is used in this schema. Ensure the custom scalar is properly defined in your Lighthouse configuration.
 
-### Premium Partners
+### Generate a new application key 🔑
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+php artisan key:generate
+```
 
-## Contributing
+### Running the Server 🚀
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Start your Laravel server:
+    ```bash
+    php artisan serve
+    ```
+2. Access the GraphQL endpoint at the path configured in your Lighthouse settings (default is [`/graphql`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fmac%2FDesktop%2Flaraql%2Fgraphql%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/Users/mac/Desktop/laraql/graphql")).
 
-## Code of Conduct
+## Example Queries 📊
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Query a Single User by ID 🧑‍💻
 
-## Security Vulnerabilities
+```graphql
+{
+    user(id: "1") {
+        id
+        name
+        email
+    }
+}
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Query Tasks by Status ✅
 
-## License
+```graphql
+{
+    tasks(status: "completed") {
+        id
+        title
+    }
+}
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Contributing 🤝
+
+Contributions are welcome! Please feel free to submit pull requests or open issues to discuss proposed changes or enhancements.
+
+If you need any more corrections or adjustments, let me know!
